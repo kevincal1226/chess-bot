@@ -2,7 +2,7 @@ use crate::constants::{self, NUM_TYPES_PIECES};
 
 #[derive(Default, Debug)]
 pub struct Board {
-    pieces_bb: [u64; constants::NUM_TYPES_PIECES],
+    pub pieces_bb: [u64; constants::NUM_TYPES_PIECES],
     all_pieces_bb: u64,
     single_color_pieces_bb: [u64; 2],
     slide_attacking: [u64; 2],

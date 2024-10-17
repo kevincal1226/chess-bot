@@ -20,11 +20,11 @@ impl std::fmt::Display for Move {
         let u_board_size = BOARD_SIZE as u32;
         write!(
             f,
-            "({}, {}) -> ({}, {})",
-            self.start.trailing_zeros() / u_board_size,
-            self.start.trailing_zeros() % u_board_size,
-            self.end.trailing_zeros() / u_board_size,
-            self.end.trailing_zeros() % u_board_size
+            "({}{}) -> ({}{})",
+            ((self.start.trailing_zeros() % u_board_size) as u8 + b'a') as char,
+            8 - self.start.trailing_zeros() / u_board_size,
+            ((self.end.trailing_zeros() % u_board_size) as u8 + b'a') as char,
+            8 - self.end.trailing_zeros() / u_board_size,
         )
     }
 }

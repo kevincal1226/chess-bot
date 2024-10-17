@@ -21,4 +21,6 @@ fn main() {
     let args = Cli::parse();
     let board: board::Board = board::Board::init(args.fen);
     board.print_board();
+    let m = moves::Move::init(board.pieces_bb[5], board.pieces_bb[11]);
+    println!("{}", m);
 }
