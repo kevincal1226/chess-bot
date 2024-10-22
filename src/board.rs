@@ -1,9 +1,11 @@
 use crate::constants::{self, NUM_TYPES_PIECES};
 
+// Note: The implementation of the board has a8 being the value 0, and h1 being the value 2_64 - 1,
+// going down/right increases the value, going up/left decreases the value in the bitboard
 #[derive(Default, Debug)]
 pub struct Board {
     pub pieces_bb: [u64; constants::NUM_TYPES_PIECES],
-    all_pieces_bb: u64,
+    pub all_pieces_bb: u64,
     single_color_pieces_bb: [u64; 2],
     slide_attacking: [u64; 2],
     no_slide_attacking: [u64; 2],

@@ -2,6 +2,7 @@ mod board;
 mod constants;
 mod engine;
 mod game;
+mod helpers;
 mod moves;
 mod worker;
 
@@ -21,6 +22,15 @@ fn main() {
     let args = Cli::parse();
     let board: board::Board = board::Board::init(args.fen);
     board.print_board();
-    let m = moves::Move::new(board.pieces_bb[5], board.pieces_bb[11], 5);
+    let m = moves::Move::new(
+        board.pieces_bb[11],
+        helpers::north_west_one_post(board.pieces_bb[11]),
+        11,
+    );
+    println!(
+        "{:b} -> {:b}",
+        board.pieces_bb[0],
+        helpers::b_single_pawn_push_targets(board.pieces_bb[0], !board.all_pieces_bb)
+    );
     println!("{}", m);
 }
