@@ -24,11 +24,11 @@ fn main() {
     board.print_board();
     let m = moves::Move::new(
         board.pieces_bb[11],
-        helpers::north_west_one_post(board.pieces_bb[11]),
+        helpers::north_west_post(board.pieces_bb[11]),
         11,
     );
     println!(
-        "{:b} -> {:b}",
+        "{:X} -> {:X}",
         board.pieces_bb[0],
         helpers::b_single_pawn_push_targets(board.pieces_bb[0], !board.all_pieces_bb)
     );
