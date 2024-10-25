@@ -16,7 +16,7 @@ pub struct Board {
 }
 
 impl Board {
-    pub fn init(fen: String) -> Board {
+    pub fn new(fen: String) -> Board {
         let mut board: Board = Board {
             castle_rights: 7,
             white_turn: true,
